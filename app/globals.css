@@ -1,0 +1,116 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.65rem;
+
+  --background: oklch(0.99 0.002 280);
+  --foreground: oklch(0.21 0.03 280);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.03 280);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.03 280);
+
+  /* Indigo brand */
+  --primary: oklch(0.511 0.262 276.966);
+  --primary-foreground: oklch(0.985 0 0);
+
+  --secondary: oklch(0.967 0.005 280);
+  --secondary-foreground: oklch(0.25 0.03 280);
+
+  --muted: oklch(0.967 0.005 280);
+  --muted-foreground: oklch(0.53 0.02 280);
+
+  --accent: oklch(0.96 0.012 280);
+  --accent-foreground: oklch(0.32 0.06 277);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+
+  --success: oklch(0.6 0.13 160);
+  --warning: oklch(0.72 0.16 75);
+
+  --border: oklch(0.92 0.006 280);
+  --input: oklch(0.92 0.006 280);
+  --ring: oklch(0.511 0.262 276.966);
+}
+
+.dark {
+  --background: oklch(0.17 0.02 280);
+  --foreground: oklch(0.97 0.005 280);
+
+  --card: oklch(0.21 0.025 280);
+  --card-foreground: oklch(0.97 0.005 280);
+
+  --popover: oklch(0.21 0.025 280);
+  --popover-foreground: oklch(0.97 0.005 280);
+
+  --primary: oklch(0.62 0.21 277);
+  --primary-foreground: oklch(0.99 0 0);
+
+  --secondary: oklch(0.27 0.025 280);
+  --secondary-foreground: oklch(0.97 0.005 280);
+
+  --muted: oklch(0.27 0.025 280);
+  --muted-foreground: oklch(0.7 0.02 280);
+
+  --accent: oklch(0.3 0.04 278);
+  --accent-foreground: oklch(0.97 0.005 280);
+
+  --destructive: oklch(0.7 0.19 22);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --success: oklch(0.72 0.16 160);
+  --warning: oklch(0.8 0.16 80);
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.62 0.21 277);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+}
