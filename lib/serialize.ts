@@ -1,4 +1,4 @@
-import type { IUnit, IWord, ISentence } from "@/lib/models";
+import type { IUnit, IWord, ISentence, ITestHistory } from "@/lib/models";
 
 export function serializeWord(w: IWord) {
   return {
@@ -30,6 +30,29 @@ export function serializeUnit(u: IUnit) {
   };
 }
 
+export function serializeHistory(h: ITestHistory) {
+  return {
+    id: h._id.toString(),
+    type: h.type,
+    unitId: h.unitId.toString(),
+    unitName: h.unitName,
+    total: h.total,
+    correct: h.correct,
+    score: h.score,
+    timeLimitSec: h.timeLimitSec,
+    durationSec: h.durationSec,
+    wordCount: h.wordCount,
+    details: (h.details || []).map((d) => ({
+      prompt: d.prompt,
+      expected: d.expected,
+      given: d.given,
+      correct: d.correct,
+    })),
+    createdAt: h.createdAt instanceof Date ? h.createdAt.toISOString() : String(h.createdAt),
+  };
+}
+
 export type SerializedUnit = ReturnType<typeof serializeUnit>;
 export type SerializedWord = ReturnType<typeof serializeWord>;
 export type SerializedSentence = ReturnType<typeof serializeSentence>;
+export type SerializedHistory = ReturnType<typeof serializeHistory>;
